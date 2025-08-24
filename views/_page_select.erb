@@ -1,10 +1,17 @@
 <ul id="page-select">
-    <% (1..page_count).each do |n| %>
+    <% if page_no > 1 %>
+        <li class="link" onclick="openLink('/works?p=<%= page_no - 1 %>')">Prev</li>
+    <% end %>
+    <% page_options = page_count > 6 ? [1, 2, page_no, page_count -  1, page_count].uniq.sort : (1..page_count).to_a %>
+    <% page_options.each do |n| %>
         <% if n == page_no %>
             <li class="current"><%= n %></li>
         <% else %>
             <li class="link" onclick="openLink('/works?p=<%= n %>')"><%= n %></li>
         <% end %>
+    <% end %>
+    <% if page_no < page_count %>
+        <li class="link" onclick="openLink('/works?p=<%= page_no + 1 %>')">Next</li>
     <% end %>
 </ul>
 

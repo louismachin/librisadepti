@@ -9,3 +9,9 @@ get '/works' do
     @works, @page_count = get_page(get_works, @page_no)
     erb :works, locals: { copy: @copy, works: @works }
 end
+
+not_found do
+    @copy = $default_copy
+    status 404
+    erb :not_found
+end

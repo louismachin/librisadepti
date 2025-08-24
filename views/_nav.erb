@@ -1,16 +1,30 @@
 <div id="nav">
+    <div class="logo"><img src="/img/sigil.png"></div>
     <div><!-- Spacer --></div>
-    <div class="button" onclick="openLink('/')"><p>Home</p></div>
-    <div class="button" onclick="openLink('/works')"><p>Works</p></div>
+    <div class="btn" onclick="openLink('/')"><p>Home</p></div>
+    <div class="btn" onclick="openLink('/works')"><p>Works</p></div>
+    <div class="btn" onclick="openLink('/authors')"><p>Authors</p></div>
+    <div><!-- Spacer --></div>
 </div>
 
 <style>
     #nav {
         display: grid;
-        grid-template-columns: 1fr 96px 96px 4fr;
+        grid-template-columns: 96px 48px 96px 96px 96px 1fr;
     }
 
-    #nav div.button {
+    #nav div.logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #nav div.logo img {
+        height: 64px;
+        filter: invert(89%) sepia(17%) saturate(258%) hue-rotate(13deg) brightness(108%) contrast(106%);
+    }
+
+    #nav div.btn {
         display: flex;
         font-family: Satoshi;
         justify-content: center;
@@ -21,7 +35,7 @@
         color: #FFFFE3;
     }
 
-    #nav div.button:hover {
+    #nav div.btn:hover {
         border-left: 1px solid #FFFFE3;
         border-right: 1px solid #FFFFE3;
         border-bottom: 1px solid #FFFFE3;

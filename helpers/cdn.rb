@@ -10,7 +10,6 @@ def get_list_of_works
         body = JSON.parse(response.body)
         file_list = body.dig('files')
         file_list.select! { |file_path| File.extname(file_path) == '.pdf' }
-        file_list = file_list.first(30) # DEBUG
         $cdn_work_list_cache = file_list
         return file_list
     else
