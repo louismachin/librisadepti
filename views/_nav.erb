@@ -13,10 +13,11 @@
         grid-template-columns: 96px 48px 96px 96px 96px 1fr;
     }
 
-    #nav div.logo {
+    #nav > div {
         display: flex;
         justify-content: center;
         align-items: center;
+        border-bottom: 1px solid #30302B;
     }
 
     #nav div.logo img {
@@ -25,19 +26,15 @@
     }
 
     #nav div.btn {
-        display: flex;
         font-family: Satoshi;
-        justify-content: center;
-        align-items: center;
         cursor: crosshair;
         border-left: 1px solid #30302B;
         border-right: 1px solid #30302B;
+        transition-duration: 0.25s;
         color: #FFFFE3;
     }
 
     #nav div.btn:hover {
-        border-left: 1px solid #FFFFE3;
-        border-right: 1px solid #FFFFE3;
         border-bottom: 1px solid #FFFFE3;
         color: #FFFFE3;
     }
