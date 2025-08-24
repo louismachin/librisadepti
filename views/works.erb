@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+
+<%= erb :_head, locals: { copy: @copy } %>
+
+<body>
+    <%= erb :_nav %>
+    <div id="main">
+        <%= erb :_page_select, locals: { page_no: @page_no, page_count: @page_count } %>
+        <%= erb :_work_grid, locals: { works: @works } %>
+    </div>
+</body>
+
+</html>

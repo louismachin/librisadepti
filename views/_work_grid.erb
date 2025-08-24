@@ -1,0 +1,65 @@
+<div class="work-grid">
+    <% works.each do |work| %>
+        <div class="work" onclick="openLink('<%= work.href %>')">
+            <h2 class="author"><%= work.formatted_author %></h2>
+            <h1 class="title"><%= work.title %></h1>
+            <% if work.description %>
+                <p><%= work.short_description %></p>
+            <% end %>
+            <% if work.genres.any? %>
+                <ul class="genres">
+                    <% work.genres.each do |genre| %>
+                        <li><%= genre %></li>
+                    <% end %>
+                </ul>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
+<style>
+    .work-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 32px;
+        width: 100%;
+        max-width: calc(100vw - 64px);
+        margin-bottom: 64px;
+    }
+
+    .work {
+        display: flex;
+        flex-direction: column;
+        /* height: min-content; */
+        border: 1px solid #30302B;
+        color: #FFFFE3;
+        padding: 16px;
+        cursor: crosshair;
+    }
+
+    .work:hover {
+        border: 1px solid #FFFFE3;
+    }
+
+    .work .author, .work .genres {
+        font-family: Satoshi;
+        font-size: 1.2rem;
+        color: #5f5959;
+        margin: 0;
+    }
+
+    .work:hover .author, .work:hover .genres {
+        color: #FFFFE3;
+    }
+
+    .work .title {
+        font-family: GeneralSans;
+        padding: 8px 0;
+        margin: 0;
+    }
+
+    .work .description {
+        font-family: Gambetta;
+        margin: 0;
+    }
+</style>

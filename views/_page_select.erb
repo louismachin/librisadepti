@@ -1,0 +1,41 @@
+<ul id="page-select">
+    <% (1..page_count).each do |n| %>
+        <% if n == page_no %>
+            <li class="current"><%= n %></li>
+        <% else %>
+            <li class="link" onclick="openLink('/works?p=<%= n %>')"><%= n %></li>
+        <% end %>
+    <% end %>
+</ul>
+
+<style>
+    #page-select {
+        list-style: none;
+        font-family: Satoshi;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 32px;
+    }
+
+    #page-select > li {
+        display: inline-block;
+        padding: 8px 16px;
+        margin: 0;
+        margin-right: 16px;
+    }
+
+    #page-select > li.link {
+        border: 1px solid #5f5959;
+        color: #FFFFE3;
+        cursor: crosshair;
+    }
+
+    #page-select > li.link:hover {
+        border: 1px solid #FFFFE3;
+    }
+
+    #page-select > li.current {
+        border: 1px solid #30302B;
+        color: #30302B;
+    }
+</style>

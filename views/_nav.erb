@@ -1,0 +1,30 @@
+<div id="nav">
+    <div><!-- Spacer --></div>
+    <div class="button" onclick="openLink('/')"><p>Home</p></div>
+    <div class="button" onclick="openLink('/works')"><p>Works</p></div>
+</div>
+
+<style>
+    #nav {
+        display: grid;
+        grid-template-columns: 1fr 96px 96px 4fr;
+    }
+
+    #nav div.button {
+        display: flex;
+        font-family: Satoshi;
+        justify-content: center;
+        align-items: center;
+        cursor: crosshair;
+        border-left: 1px solid #30302B;
+        border-right: 1px solid #30302B;
+        color: #FFFFE3;
+    }
+
+    #nav div.button:hover {
+        border-left: 1px solid #FFFFE3;
+        border-right: 1px solid #FFFFE3;
+        border-bottom: 1px solid #FFFFE3;
+        color: #FFFFE3;
+    }
+</style>
