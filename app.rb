@@ -22,6 +22,7 @@ require_relative './models/copy'
 require_relative './models/work'
 
 require_relative './routes/index'
+require_relative './routes/works'
 require_relative './routes/session'
 
 # initialize cache
