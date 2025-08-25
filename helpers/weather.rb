@@ -3,6 +3,10 @@ Weather = Struct.new(
     :moon_phase, :moonrise, :moonset,
 )
 
+ThelemicDate = Struct.new(
+    :sol, :luna, :year
+)
+
 class String
     def titlecase
         self.split(' ').map(&:capitalize).join(' ')
@@ -38,6 +42,16 @@ def get_weather(ip = nil)
         astronomy.dig('moon_phase').gsub('_', ' ').titlecase,
         astronomy.dig('moonrise'),
         astronomy.dig('moonset'),
+    )
+end
+
+def get_thelemic_date
+    uri "https://machin.dev/api/thelemic_date.json"
+    response = simple_get_body(uri)
+    return ThelemicDate.new(
+        response.dig('plain', 'sol'),
+        response.dig('plain', 'luna'),
+        response.dig('plain', 'year_alt'),
     )
 end
 

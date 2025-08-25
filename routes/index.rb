@@ -1,7 +1,10 @@
 get '/' do
     @copy = $default_copy
     @weather = get_weather(get_ip)
-    erb :home, locals: { copy: @copy, weather: @weather }
+    @thelemic_date = get_thelemic_date
+    erb :home, locals: {
+        copy: @copy, weather: @weather, thelemic_date: @thelemic_date
+    }
 end
 
 get '/works' do
@@ -23,7 +26,9 @@ end
 get '/authors' do
     @copy = $default_copy
     @authors_by_initial = get_authors_by_initial
-    erb :authors, locals: { copy: @copy, authors_by_initial: @authors_by_initial }
+    erb :authors, locals: {
+        copy: @copy, authors_by_initial: @authors_by_initial
+    }
 end
 
 not_found do
