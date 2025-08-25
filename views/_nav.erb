@@ -10,7 +10,13 @@
 <style>
     #nav {
         display: grid;
-        grid-template-columns: 96px 48px 96px 96px 96px 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 640px) {
+        #nav {
+            grid-template-columns: 96px 48px 96px 96px 96px 1fr;
+        }
     }
 
     #nav > div {
@@ -20,9 +26,22 @@
         border-bottom: 1px solid #30302B;
     }
 
+    #nav div.logo {
+        visibility: hidden;
+        height: 0;
+    }
+
     #nav div.logo img {
         height: 64px;
     }
+
+    @media (min-width: 640px) {
+        #nav div.logo {
+            visibility: visible;
+            height: auto;
+        }
+    }
+
 
     #nav div.btn {
         font-family: Satoshi;

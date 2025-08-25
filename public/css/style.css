@@ -16,7 +16,7 @@
 body {
     display: grid;
     /* nav height, content height */
-    grid-template-rows: 96px 1fr;
+    grid-template-rows: min-content 1fr;
     grid-gap: 0;
     margin: 0;
     padding: 0;
@@ -24,6 +24,12 @@ body {
     max-height: 100vh;
     overflow: hidden;
     background-color: #10100E;
+}
+
+@media (min-width: 640px) {
+    body {
+        grid-template-rows: 96px 1fr;
+    }
 }
 
 a {
@@ -48,11 +54,23 @@ a {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     grid-gap: 32px;
     width: 100%;
     max-width: calc(100vw - 64px);
     margin-bottom: 64px;
+}
+
+@media (min-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 960px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .grid > div {
