@@ -1,6 +1,7 @@
 get '/' do
     @copy = $default_copy
-    erb :home, locals: { copy: @copy }
+    @weather = get_weather(get_ip)
+    erb :home, locals: { copy: @copy, weather: @weather }
 end
 
 get '/works' do

@@ -13,13 +13,16 @@ configure do
     disable :protection
 end
 
-require_relative './helpers/cdn'
-require_relative './helpers/pagination'
 require_relative './helpers/simple_web'
+require_relative './helpers/cdn'
+require_relative './helpers/weather'
+require_relative './helpers/pagination'
 
 require_relative './models/copy'
 require_relative './models/work'
 
 require_relative './routes/index'
+require_relative './routes/session'
 
-get_works # initialize cache
+# initialize cache
+get_works if $env.is_production?
