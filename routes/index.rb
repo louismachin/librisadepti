@@ -5,9 +5,24 @@ end
 
 get '/works' do
     @copy = $default_copy
+    @works = get_works
     @page_no = params[:p] ? params[:p].to_i : 1
-    @works, @page_count = get_page(get_works, @page_no)
-    erb :works, locals: { copy: @copy, works: @works }
+    # Filter by author
+    @author = params[:author].nil? ? nil : params[:author]
+    puts "author=#{@author}"
+    @works.select! { |work| work.author == @author } if @author
+    # Paginate
+    @works, @page_count = get_page(@works, @page_no)
+    # Render
+    locals = { copy: @copy, works: @works }
+    locals[:author] = @author unless @author.nil?
+    erb :works, locals: locals
+end
+
+get '/authors' do
+    @copy = $default_copy
+    @authors = get_authors
+    erb :authors, locals: { copy: @copy, authors: @authors }
 end
 
 not_found do

@@ -6,7 +6,7 @@
 <body>
     <%= erb :_nav %>
     <div id="main">
-        <%= erb :_page_select, locals: { page_no: @page_no, page_count: @page_count } %>
+        <%= erb :_page_select, locals: { page_no: @page_no, page_count: @page_count, author: @author } %>
         <%= erb :_work_grid, locals: { works: @works } %>
     </div>
 </body>

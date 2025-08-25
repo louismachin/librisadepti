@@ -26,6 +26,10 @@ body {
     background-color: #10100E;
 }
 
+a {
+    color: inherit;
+}
+
 #nav {
     color: #FFFFE3;
     width: 100%;

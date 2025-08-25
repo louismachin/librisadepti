@@ -18,16 +18,16 @@ def get_list_of_works
 end
 
 def get_works
-    return $work_cache unless $work_cache == nil
+    return $work_cache.clone unless $work_cache == nil
     result = []
     for file_name in get_list_of_works do
         work = Work.new(file_name)
-        puts "author=#{work.author}\ntitle=#{work.title}\next=#{work.ext}"
-        puts "description=#{work.description}"
+    #   puts "author=#{work.author}\ntitle=#{work.title}\next=#{work.ext}"
+    #   puts "description=#{work.description}"
         result << work
     end
     $work_cache = result
-    return result
+    return result.clone
 end
 
 def get_file(file_name)
@@ -42,4 +42,8 @@ def get_file(file_name)
     else
         return nil
     end
+end
+
+def get_authors
+    get_works.map { |work| work.author }.uniq
 end

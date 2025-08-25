@@ -3,10 +3,23 @@
 
 <%= erb :_head, locals: { copy: @copy } %>
 
+<style>
+    .author {
+        font-family: Satoshi;
+        color: #FFFFE3;
+        text-decoration: none;
+        font-size: 1.6rem;
+        cursor: crosshair;
+    }
+</style>
+
 <body>
     <%= erb :_nav %>
     <div id="main">
-        <p style="font-family: Satoshi; color: #FFFFE3">Website in redevelopment...</p>
+        <% authors.each do |author| %>
+            <% href = "/works?author=#{URI.encode_www_form_component(author)}" %>
+            <a class="author" href="<%= href %>"><%= author %></a>
+        <% end %>
     </div>
 </body>
 
