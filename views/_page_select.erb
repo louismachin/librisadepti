@@ -1,25 +1,28 @@
-<ul id="page-select">
-    <%
-        q = ""
-        if defined?(author) && (!author.nil?)
-            q += "author=#{URI.encode_www_form_component(author)}&"
-        end
-    %>
-    <% if page_no > 1 %>
-        <li class="link" onclick="openLink('/works?<%= q %>p=<%= page_no - 1 %>')">Prev</li>
-    <% end %>
-    <% page_options = page_count > 6 ? [1, 2, page_no, page_count -  1, page_count].uniq.sort : (1..page_count).to_a %>
-    <% page_options.each do |n| %>
-        <% if n == page_no %>
-            <li class="current"><%= n %></li>
-        <% else %>
-            <li class="link" onclick="openLink('/works?<%= q %>p=<%= n %>')"><%= n %></li>
+<% if page_count > 1 %>
+    <ul id="page-select">
+        <%
+            q = ""
+            if defined?(author) && (!author.nil?)
+                uri_author = URI.encode_www_form_component(author)
+                q += "author=#{uri_author}&"
+            end
+        %>
+        <% if page_no > 1 %>
+            <li class="link" onclick="openLink('/works?<%= q %>p=<%= page_no - 1 %>')">Prev</li>
         <% end %>
-    <% end %>
-    <% if page_no < page_count %>
-        <li class="link" onclick="openLink('/works?<%= q %>p=<%= page_no + 1 %>')">Next</li>
-    <% end %>
-</ul>
+        <% page_options = page_count > 6 ? [1, 2, page_no, page_count -  1, page_count].uniq.sort : (1..page_count).to_a %>
+        <% page_options.each do |n| %>
+            <% if n == page_no %>
+                <li class="current"><%= n %></li>
+            <% else %>
+                <li class="link" onclick="openLink('/works?<%= q %>p=<%= n %>')"><%= n %></li>
+            <% end %>
+        <% end %>
+        <% if page_no < page_count %>
+            <li class="link" onclick="openLink('/works?<%= q %>p=<%= page_no + 1 %>')">Next</li>
+        <% end %>
+    </ul>
+<% end %>
 
 <style>
     #page-select {

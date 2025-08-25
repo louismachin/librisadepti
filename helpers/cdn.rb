@@ -47,3 +47,12 @@ end
 def get_authors
     get_works.map { |work| work.author }.uniq
 end
+
+def get_authors_by_initial
+    authors = get_authors
+    initials = authors.map { |author| author[0] }.uniq.sort
+    result = {}
+    initials.each { |initial| result[initial] = [] }
+    authors.each { |author| result[author[0]] << author }
+    return result
+end

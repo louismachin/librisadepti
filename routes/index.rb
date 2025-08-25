@@ -21,8 +21,8 @@ end
 
 get '/authors' do
     @copy = $default_copy
-    @authors = get_authors
-    erb :authors, locals: { copy: @copy, authors: @authors }
+    @authors_by_initial = get_authors_by_initial
+    erb :authors, locals: { copy: @copy, authors_by_initial: @authors_by_initial }
 end
 
 not_found do

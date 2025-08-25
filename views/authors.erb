@@ -11,14 +11,26 @@
         font-size: 1.6rem;
         cursor: crosshair;
     }
+
+    .initial {
+        font-family: Satoshi;
+        color: #FFFFE3;
+        text-decoration: none;
+        font-size: 3rem;
+        margin: 0;
+    }
 </style>
 
 <body>
     <%= erb :_nav %>
     <div id="main">
-        <% authors.each do |author| %>
-            <% href = "/works?author=#{URI.encode_www_form_component(author)}" %>
-            <a class="author" href="<%= href %>"><%= author %></a>
+        <% authors_by_initial.each do |initial, authors| %>
+            <h1 class="initial"><%= initial %></h1>
+            <% authors.each do |author| %>
+                <% author_uri = URI.encode_www_form_component(author) %>
+                <% href = "/works?author=#{author_uri}" %>
+                <a class="author" href="<%= href %>"><%= author %></a>
+            <% end %>
         <% end %>
     </div>
 </body>
