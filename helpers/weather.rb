@@ -46,7 +46,7 @@ def get_weather(ip = nil)
 end
 
 def get_thelemic_date
-    uri "https://machin.dev/api/thelemic_date.json"
+    uri = "https://louismachin.com/api/thelemic_date.json"
     response = simple_get_body(uri)
     return ThelemicDate.new(
         response.dig('plain', 'sol'),
