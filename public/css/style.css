@@ -45,3 +45,30 @@ a {
     max-width: 100%;
     overflow-y: scroll;
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 32px;
+    width: 100%;
+    max-width: calc(100vw - 64px);
+    margin-bottom: 64px;
+}
+
+.grid > div {
+    display: flex;
+    flex-direction: column;
+    /* height: min-content; */
+    border: 1px solid #30302B;
+    color: #FFFFE3;
+    padding: 16px;
+    cursor: crosshair;
+}
+
+.grid > div:hover {
+    border: 1px solid #FFFFE3;
+}
+
+.invert {
+    filter: invert(89%) sepia(17%) saturate(258%) hue-rotate(13deg) brightness(108%) contrast(106%);
+}

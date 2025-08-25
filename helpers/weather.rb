@@ -3,6 +3,12 @@ Weather = Struct.new(
     :moon_phase, :moonrise, :moonset,
 )
 
+class String
+    def titlecase
+        self.split(' ').map(&:capitalize).join(' ')
+    end
+end
+
 def get_geo_astronomy(ip = nil)
     ip = nil if BAD_IPS.include?(ip)
     api_key = $env.data.dig('ipgeolocation', 'api_key')
@@ -29,7 +35,7 @@ def get_weather(ip = nil)
         astronomy.dig('sunrise'),
         astronomy.dig('solar_noon'),
         astronomy.dig('sunset'),
-        astronomy.dig('moon_phase'),
+        astronomy.dig('moon_phase').gsub('_', ' ').titlecase,
         astronomy.dig('moonrise'),
         astronomy.dig('moonset'),
     )

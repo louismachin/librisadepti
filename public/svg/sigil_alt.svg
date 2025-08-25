@@ -1,0 +1,17 @@
+
+          <svg width="305" height="305" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="markerCircle" markerWidth="8" markerHeight="8" refX="5" refY="5" style="display: inline;">
+                <circle cx="5" cy="5" r="2.5" style="stroke: #000000; fill: #ffffff;"></circle>
+              </marker>
+
+              <marker id="markerArrow" markerWidth="11" markerHeight="11" refX="2" refY="6.5" orient="auto" style="display: inline;">
+                <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;"></path>
+              </marker>
+
+              <marker id="markerRect" markerWidth="7" markerHeight="7" refX="2" refY="4" orient="auto" style="display: inline;">
+                <rect x="1" y="1" width="1" height="6" style="stroke: none; fill:#000000;"></rect>
+              </marker>
+            </defs>
+          <path d="M250,250L250,50L150,250L50,150L150,50L150,150L150,150L250,50L50,150L50,250" stroke="black" stroke-width="4" fill="none" class="sigil" marker-start="url(#markerCircle)" marker-end="url(#markerRect)" stroke-dasharray="1271.477783203125,1271.477783203125"></path></svg>
+        

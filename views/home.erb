@@ -3,10 +3,68 @@
 
 <%= erb :_head, locals: { copy: @copy } %>
 
+<style>
+    .home-stats h2 {
+        font-family: Gambetta;
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    .home-stats h1 {
+        font-family: GeneralSans;
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 0;
+        margin-bottom: 8px;
+    }
+
+    .home-stats img {
+        width: 48px;
+        margin-bottom: 16px;
+    }
+</style>
+
 <body>
     <%= erb :_nav %>
     <div id="main">
-        <p style="font-family: Satoshi; color: #FFFFE3">Website in redevelopment...</p>
+        <div class="grid home-stats">
+            <div>
+                <img class="invert" src="/svg/library.svg">
+                <h2>Total Books</h2>
+                <h1>???</h1>
+                <h2>Total Downloads</h2>
+                <h1>???</h1>
+                <h2>Storage Used</h2>
+                <h1>???</h1>
+            </div>
+            <div>
+                <img class="invert" src="/svg/sol.svg">
+                <h2>Sunrise</h2>
+                <h1><%= weather.sunrise %></h1>
+                <h2>Solar Noon</h2>
+                <h1><%= weather.solar_noon %></h1>
+                <h2>Sunset</h2>
+                <h1><%= weather.sunset %></h1>
+            </div>
+            <div>
+                <img class="invert" src="/svg/moon.svg">
+                <h2>Moon Phase</h2>
+                <h1><%= weather.moon_phase %></h1>
+                <h2>Moonrise</h2>
+                <h1><%= weather.moonrise %></h1>
+                <h2>Moonset</h2>
+                <h1><%= weather.moonset %></h1>
+            </div>
+            <div>
+                <img class="invert" src="/svg/thelema_unicursal_hexagram.svg">
+                <h2>Solar</h2>
+                <h1>???</h1>
+                <h2>Lunar</h2>
+                <h1>???</h1>
+                <h2>Year</h2>
+                <h1>???</h1>
+            </div>
+        </div>
     </div>
 </body>
 
