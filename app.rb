@@ -17,6 +17,7 @@ require_relative './helpers/simple_web'
 require_relative './helpers/cdn'
 require_relative './helpers/weather'
 require_relative './helpers/pagination'
+require_relative './helpers/colors'
 
 require_relative './models/copy'
 require_relative './models/work'
