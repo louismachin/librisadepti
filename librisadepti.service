@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=louis
-WorkingDirectory=/opt/librisadepti.com
+WorkingDirectory=/opt/librisadepti
 ExecStart=/usr/bin/rake run
 Restart=always
 RestartSec=10
