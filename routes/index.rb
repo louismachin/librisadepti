@@ -1,5 +1,4 @@
 get '/' do
-    puts palette
     @copy = $default_copy
     @weather = get_weather(get_ip)
     @thelemic_date = get_thelemic_date
