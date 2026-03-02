@@ -51,6 +51,15 @@ def get_weather(ip = nil)
         astronomy.dig('moonrise'),
         astronomy.dig('moonset'),
     )
+rescue
+    return Weather.new(
+        'N/A',
+        'N/A',
+        'N/A',
+        'N/A',
+        'N/A',
+        'N/A',
+    )
 end
 
 def get_thelemic_date
