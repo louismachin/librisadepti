@@ -18,19 +18,27 @@ def get_geo_astronomy(ip = nil)
     api_key = $env.data.dig('ipgeolocation', 'api_key')
     uri = 'https://api.ipgeolocation.io/astronomy'
     return simple_get_body(uri, { 'apiKey' => api_key })
+rescue
+    {}
 end
 
 def get_lat_lon(ip = nil, astronomy = nil)
     astronomy = get_geo_astronomy(ip) unless astronomy
     lat = astronomy.dig('location', 'latitude')
     lon = astronomy.dig('location', 'longitude')
+    throw if lat == nil
+    throw if lon == nil
     return [lat, lon]
+rescue
+    return [51.4779, 0.0015]
 end
 
 def get_pirate_weather(lat, lon)
     api_key = $env.data.dig('pirate_weather', 'api_key')
     uri = "https://api.pirateweather.net/forecast/#{api_key}/#{lat},#{lon}"
     return simple_get_body(uri)
+rescue
+    {}
 end
 
 def get_weather(ip = nil)
@@ -66,4 +74,6 @@ get '/api/weather.json' do
         moonrise: weather.moonrise,
         moonset: weather.moonset,
     }.to_json
+rescue
+    {}.to_json
 end
